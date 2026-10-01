@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Діамант — Меню</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Playfair+Display:wght@500;600;700&family=Jost:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Playfair+Display:wght@500;600;700&family=Jost:wght@400;500;600&family=Nunito:wght@600;700&display=swap">
 <style>
 :root{--a:#f0629b;--gl:rgba(136,22,84,.46);--bd:rgba(255,255,255,.2);--mu:#ffd3e6;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
@@ -28,7 +28,7 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;background:url(data:im
 .hp img{position:absolute;width:88px;height:88px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.4)}
 .hp img:nth-child(1){right:62px;top:8px}.hp img:nth-child(2){right:0;top:38px}.hp img:nth-child(3){right:50px;bottom:6px;width:74px;height:74px}
 .g{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.c{position:relative;overflow:hidden;height:92px;border-radius:16px;border:1px solid var(--bd);background:rgba(120,15,70,.6);padding:12px;display:flex;flex-direction:column;justify-content:space-between;color:#fff;text-align:left;font:500 15px/1.15 "Playfair Display",Georgia,serif}
+.c{position:relative;overflow:hidden;height:100px;border-radius:16px;border:1px solid var(--bd);background:rgba(120,15,70,.6);padding:12px;display:flex;flex-direction:column;justify-content:space-between;color:#fff;text-align:left;font:700 17px/1.15 Nunito,Jost,"Segoe UI",Arial,sans-serif}
 .c>img{position:absolute;right:0;top:0;width:64%;height:100%;object-fit:cover}
 .c::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(105,12,62,.95) 25%,rgba(105,12,62,.2))}
 .c>svg,.c>span{position:relative;z-index:2}
@@ -85,6 +85,27 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;background:url(data:im
 body.rd .w{opacity:1;animation:none;transition:opacity .9s ease .1s}
 @keyframes wIn{to{opacity:1}}
 @media (prefers-reduced-motion:reduce){#sp svg{animation:none}}
+
+.ab{background:var(--gl);border:1px solid var(--bd);border-radius:18px;padding:14px;backdrop-filter:blur(6px)}
+.ab p{margin:0 0 10px;font-size:13.5px;line-height:1.55;color:#fff}
+.ab p:last-child{margin-bottom:0}
+.ch{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0 0}
+.ch div{background:rgba(255,255,255,.12);border:1px solid var(--bd);border-radius:14px;padding:12px 4px 10px;text-align:center;font:500 13px Jost,sans-serif}
+.ch svg{display:block;width:26px;height:26px;margin:0 auto 6px;stroke:#ff9cc6;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.mp{margin-top:10px;border-radius:18px;overflow:hidden;border:1px solid var(--bd);background:rgba(120,15,70,.6)}
+.mp iframe{display:block;width:100%;height:240px;border:0}
+.ad{display:flex;align-items:center;gap:8px;padding:12px 14px;font-size:13.5px;line-height:1.4}
+.ad svg{flex:none;width:20px;height:20px;stroke:#ff9cc6;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.rt2{display:block;margin:0 14px 14px;text-align:center;background:linear-gradient(90deg,#f0629b,#d63f83);color:#fff;text-decoration:none;border-radius:14px;padding:12px;font:600 14px Jost,sans-serif}
+.so{display:flex;gap:10px;margin:10px 0 4px}
+.sb2{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;background:rgba(255,255,255,.14);border:1px solid var(--bd);border-radius:14px;padding:12px;color:#fff;text-decoration:none;font:500 14px Jost,sans-serif}
+.sb2 svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.cr{margin-top:14px;font-size:11px;letter-spacing:1px;color:var(--mu);opacity:.8}
+.ab .sl{margin-top:12px;text-align:center;font:600 16px "Playfair Display",Georgia,serif;color:#ffd24a}
+.mb{display:flex;gap:8px;margin:0 14px 14px}
+.mb .rt2{flex:1;margin:0;padding:12px 6px;font-size:13px}
+.zy{color:#ffd700}
+.zb{color:#2f8cff}
 </style>
 </head>
 <body>
@@ -93,7 +114,22 @@ body.rd .w{opacity:1;animation:none;transition:opacity .9s ease .1s}
 <div class="top"><button class="ib" onclick="hm()" aria-label="Меню"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button><div class="logo"><b>Діамант</b><small>РЕСТОРАННО-ВІДПОЧИНКОВИЙ КОМПЛЕКС</small></div><button class="ib" onclick="oc()" aria-label="Кошик"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.5 11h10L20 7H6.5M9 20h.1M17 20h.1"/></svg><i id="n">0</i></button></div>
 <div id="home"><div class="hero"><div class="ht"><p>Смак, який об'єднує</p><h1>МЕНЮ</h1><span>Обирайте улюблені страви та насолоджуйтесь</span></div><div class="hp" id="hp"></div></div>
 <div class="g" id="cats"></div><div class="pt">Популярні страви</div><div id="pop"></div>
-<div class="ft"><a href="tel:+380679030558">067 90 30 558</a><br><a href="tel:+380988893512">098 88 93 512</a><br><a href="https://instagram.com/nc_diamant">Instagram: nc_diamant</a><br><a href="https://facebook.com/nc.diamant">Facebook: nc.diamant</a><div class="zs">СЛАВА ЗСУ</div></div></div>
+<div class="pt">Про ресторан</div>
+<div class="ab">
+<p>«Діамант» — ресторанно-відпочинковий комплекс, де смачно, затишно і є чим зайнятися всією компанією. Ми готуємо від душі: свіжі продукти, щедрі порції та щира українська гостинність.</p>
+<div class="ch">
+<div><svg viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="9" ry="5"/><path d="M3 12v3c0 2.8 4 5 9 5s9-2.2 9-5v-3M8 11.5c1.5-1 6.5-1 8 0"/></svg>Суші та роли</div>
+<div><svg viewBox="0 0 24 24"><path d="M12 21L3.5 6.5a17 17 0 0117 0z"/><circle cx="10" cy="9" r="1"/><circle cx="14" cy="11" r="1"/><circle cx="12" cy="14" r="1"/></svg>Італійська піца</div>
+<div><svg viewBox="0 0 24 24"><path d="M10 3h4M12 3v5M9 8h6l-1 4h-4zM12 12v5M7 21c0-2.5 2-4 5-4s5 1.5 5 4z"/></svg>Кальян</div>
+</div>
+</div>
+<div class="pt">Як нас знайти</div>
+<div class="mp">
+<div class="ad"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0119 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span id="adr"></span></div>
+<iframe id="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Карта" allowfullscreen></iframe>
+<div class="mb"><a class="rt2" id="open" target="_blank" rel="noopener">Відкрити в Google Maps</a><a class="rt2" id="route" target="_blank" rel="noopener">Прокласти маршрут</a></div>
+</div>
+<div class="ft"><a href="tel:+380679030558">067 90 30 558</a><br><a href="tel:+380988893512">098 88 93 512</a><br><div class="so"><a class="sb2" href="https://instagram.com/nc_diamant" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6"/></svg>Instagram</a><a class="sb2" href="https://facebook.com/nc.diamant" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 00-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg>Facebook</a></div><div class="zs"><span class="zy">СЛАВА УКРАЇНІ</span><br><span class="zb">СЛАВА ЗСУ</span></div><div class="cr">Create by Horun Luka</div></div></div>
 <div id="cv" style="display:none"><div class="ph2"><button class="bk" onclick="hm()" aria-label="Назад">←</button><h2 id="ct"></h2></div><div id="cl"></div></div>
 </div>
 <div class="bar" id="bar"><button onclick="oc()"><span>Ваше замовлення</span><span id="bt"></span></button></div>
@@ -245,6 +281,14 @@ document.getElementById("hp").innerHTML=["0.0.0","4.0.0","5.0.2"].map(function(k
 (function(){var t=Date.now(),sp=document.getElementById("sp");
 function hide(){setTimeout(function(){sp.classList.add("off");document.body.classList.add("rd");setTimeout(function(){sp.remove()},900)},Math.max(0,2200-(Date.now()-t)))}
 if(document.readyState=="complete")hide();else addEventListener("load",hide)})();
+</script>
+<script>
+/* ЗАМІНІТЬ на реальну адресу закладу (місто, вулиця, будинок) */
+var ADDRESS="Діамант, ресторанно-відпочинковий комплекс";
+(function(){var q=encodeURIComponent(ADDRESS);
+document.getElementById("adr").textContent=ADDRESS;
+document.getElementById("map").src="https://www.google.com/maps?q="+q+"&output=embed&hl=uk";
+document.getElementById("open").href="https://www.google.com/maps/search/?api=1&query="+q;document.getElementById("route").href="https://www.google.com/maps/dir/?api=1&destination="+q})();
 </script>
 </body>
 </html>
