@@ -58,7 +58,12 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;background:url(data:im
 .bar{position:fixed;left:0;right:0;bottom:0;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));display:none}
 .bar button{display:flex;justify-content:space-between;width:100%;max-width:492px;margin:0 auto;background:linear-gradient(90deg,#f0629b,#d63f83);color:#fff;border:0;border-radius:16px;padding:15px 18px;font:600 15px Jost,sans-serif;box-shadow:0 6px 20px #5a0a3a66}
 .sh{position:fixed;inset:0;background:#3a0824aa;display:none;align-items:flex-end;z-index:9}
-.sh>div{width:100%;max-width:520px;margin:0 auto;border-radius:22px 22px 0 0;padding:16px 16px calc(16px + env(safe-area-inset-bottom,0px));max-height:85%;overflow:auto;background:rgba(122,20,74,.97);border:1px solid var(--bd)}
+.sh>div{width:100%;max-width:520px;margin:0 auto;border-radius:22px 22px 0 0;padding:16px 16px calc(14px + env(safe-area-inset-bottom,0px));max-height:90%;max-height:90dvh;display:flex;flex-direction:column;overflow:hidden;background:rgba(122,20,74,.97);border:1px solid var(--bd)}
+.sc{flex:1 1 auto;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding-bottom:6px}
+.sf{flex:none;border-top:1px solid rgba(255,255,255,.2);margin-top:6px}
+.sf .t{padding:10px 0}
+.hd{flex:none}
+.rn{overflow-wrap:anywhere}
 .hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
 .hd h2{margin:0;font:500 24px "Playfair Display",Georgia,serif}
 .hd button{background:none;border:0;color:var(--mu);font:500 13px Jost,sans-serif}
@@ -70,19 +75,19 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;background:url(data:im
 .t{display:flex;justify-content:space-between;font:600 18px Jost,sans-serif;padding:14px 0}
 .call{display:block;text-align:center;background:linear-gradient(90deg,#f0629b,#d63f83);color:#fff;text-decoration:none;border-radius:16px;padding:15px;font-weight:600}
 
-#sp{position:fixed;inset:0;z-index:99;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 38%,#b83b7c,#7a1a4c 72%);color:#fff;transition:opacity .8s ease,visibility .8s;animation:spOut .8s ease 4.5s forwards}
+#sp{position:fixed;inset:0;z-index:99;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 38%,#b83b7c,#7a1a4c 72%);color:#fff;transition:opacity .4s ease,visibility .4s;animation:spOut .4s ease 2.5s forwards}
 #sp.off{opacity:0;visibility:hidden;animation:none}
 @keyframes spOut{to{opacity:0;visibility:hidden}}
 #sp svg{width:76px;height:76px;animation:dm 2.2s ease-in-out infinite}
 @keyframes dm{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.12);opacity:1}}
-#sp b{font:400 60px/1.1 "Marck Script",cursive;margin-top:12px;opacity:0;animation:fi 1s ease .2s forwards}
-#sp small{font:500 9px Jost,sans-serif;letter-spacing:2px;margin-top:6px;opacity:0;animation:fi 1s ease .6s forwards}
+#sp b{font:400 60px/1.1 "Marck Script",cursive;margin-top:12px;opacity:0;animation:fi .5s ease .05s forwards}
+#sp small{font:500 9px Jost,sans-serif;letter-spacing:2px;margin-top:6px;opacity:0;animation:fi .5s ease .2s forwards}
 .sb{width:140px;height:2px;background:rgba(255,255,255,.25);margin-top:30px;border-radius:2px;overflow:hidden}
-.sb i{display:block;height:100%;background:#fff;transform:translateX(-100%);animation:ld 2s ease-in-out forwards}
+.sb i{display:block;height:100%;background:#fff;transform:translateX(-100%);animation:ld .9s ease-in-out forwards}
 @keyframes fi{to{opacity:1}}
 @keyframes ld{to{transform:none}}
-.w{opacity:0;animation:wIn .8s ease 5s forwards}
-body.rd .w{opacity:1;animation:none;transition:opacity .9s ease .1s}
+.w{opacity:0;animation:wIn .4s ease 2.8s forwards}
+body.rd .w{opacity:1;animation:none;transition:opacity .4s ease}
 @keyframes wIn{to{opacity:1}}
 @media (prefers-reduced-motion:reduce){#sp svg{animation:none}}
 
@@ -119,7 +124,7 @@ body.rd .w{opacity:1;animation:none;transition:opacity .9s ease .1s}
 .call.alt{background:none;border:1px solid rgba(255,255,255,.6)}
 .ts{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:#fff;color:#8a1d57;padding:12px 16px;border-radius:14px;font:500 13px Jost,sans-serif;z-index:20;opacity:0;pointer-events:none;transition:opacity .3s;width:max-content;max-width:90%;text-align:center;box-shadow:0 6px 20px rgba(60,8,36,.4)}
 .ts.on{opacity:1}
-.di.sh{display:block}
+.di.sw{display:block}
 .lb{margin:12px 0 -4px;font-size:12px;letter-spacing:.8px;text-transform:uppercase;color:var(--mu)}
 </style>
 </head>
@@ -149,7 +154,7 @@ body.rd .w{opacity:1;animation:none;transition:opacity .9s ease .1s}
 </div>
 <div class="ts" id="ts"></div>
 <div class="bar" id="bar"><button onclick="oc()"><span data-i="ord">Ваше замовлення</span><span id="bt"></span></button></div>
-<div class="sh" id="sh" onclick="if(event.target===this)cc()"><div><div class="hd"><h2 data-i="cart">Кошик</h2><button onclick="clr()" data-i="clr">Видалити все</button></div><div id="cart"></div><div class="dl"><button id="dp" class="on" onclick="sd('p')" data-i="pickup">Самовивіз</button><button id="dd" onclick="sd('d')" data-i="delivery">Доставка</button></div><input id="da" class="di" type="text" autocomplete="street-address" oninput="this.classList.remove('er')" placeholder="Адреса доставки (вулиця, будинок)"><div class="lb" data-i="payl">Оплата</div><div class="dl"><button id="pc" class="on" onclick="sp('c')" data-i="cash">Готівка</button><button id="pk" onclick="sp('k')" data-i="card">Картка</button></div><input id="dn" class="di sh" type="text" autocomplete="name" placeholder="Ваше ім'я (необов'язково)"><input id="dph" class="di sh" type="tel" autocomplete="tel" inputmode="tel" oninput="this.classList.remove('er')" placeholder="Ваш телефон"><div class="t"><span data-i="tot">Разом</span><span id="tt"></span></div><a class="call" href="#" id="sb" onclick="return sm()" data-i="sms">Оформити замовлення</a><a class="call alt" href="tel:+380679030558" data-i="call">Замовити за телефоном →</a></div></div>
+<div class="sh" id="sh" onclick="if(event.target===this)cc()"><div><div class="hd"><h2 data-i="cart">Кошик</h2><button onclick="clr()" data-i="clr">Видалити все</button></div><div class="sc"><div id="cart"></div><div class="dl"><button id="dp" class="on" onclick="sd('p')" data-i="pickup">Самовивіз</button><button id="dd" onclick="sd('d')" data-i="delivery">Доставка</button></div><input id="da" class="di" type="text" autocomplete="street-address" oninput="this.classList.remove('er')" placeholder="Адреса доставки (вулиця, будинок)"><div class="lb" data-i="payl">Оплата</div><div class="dl"><button id="pc" class="on" onclick="sp('c')" data-i="cash">Готівка</button><button id="pk" onclick="sp('k')" data-i="card">Картка</button></div><input id="dn" class="di sw" type="text" autocomplete="name" placeholder="Ваше ім'я (необов'язково)"><input id="dph" class="di sw" type="tel" autocomplete="tel" inputmode="tel" oninput="this.classList.remove('er')" placeholder="Ваш телефон"></div><div class="sf"><div class="t"><span data-i="tot">Разом</span><span id="tt"></span></div><a class="call" href="#" id="sb" onclick="return sm()" data-i="sms">Оформити замовлення</a><a class="call alt" href="tel:+380679030558" data-i="call">Замовити за телефоном →</a></div></div></div>
 <script>
 var v=function(a,b,x,y){return[[x,a],[y,b]]};
 var pz=function(n,d,a,b){return[n,d,"",v(a,b,"32 см","45 см")]};
@@ -373,8 +378,8 @@ function rc(){var h="";for(var k in cart){var x=look(k),q=k.split("."),ik=q[0]+"
  h+='<div class="r">'+(IM[ik]?'<img class="rt" alt="" src="'+IM[ik]+'">':'')+'<div class="rn"><b>'+E(nm(k,L))+'</b><small>₴ '+x[1]+'</small></div><span class="q"><button onclick="ch(\''+k+'\',-1)">−</button>'+cart[k]+'<button onclick="ch(\''+k+'\',1)">+</button></span></div>'}
  cart_.innerHTML=h||'<div class="r">'+U("empty")+'</div>';tt.textContent="₴ "+tot()[1]}
 function clr(){cart={};up();rc()}
-function oc(){rc();sh.style.display="flex"}
-function cc(){sh.style.display="none"}
+function oc(){rc();sh.style.display="flex";document.body.style.overflow="hidden"}
+function cc(){sh.style.display="none";document.body.style.overflow=""}
 var home=document.getElementById("home"),cv=document.getElementById("cv"),ct=document.getElementById("ct"),cl=document.getElementById("cl"),bar=document.getElementById("bar"),bt=document.getElementById("bt"),sh=document.getElementById("sh"),tt=document.getElementById("tt"),cart_=document.getElementById("cart");
 var TP=["0.0.0","1.0.3","2.0.1","3.0.0","4.0.0","5.0.2","6.0.0","1.0.7","8.0.4","8.0.13","10.0.0"];
 document.getElementById("cats").innerHTML=C.map(function(c,i){return '<button class="c" onclick="sc('+i+')"><img alt="" src="'+IM[TP[i]]+'"><svg viewBox="0 0 24 24"><path d="'+IC[i]+'"/></svg><span>'+E(T(c.n))+'<u>→</u></span></button>'}).join("");
@@ -384,12 +389,14 @@ setL(L);
 </script>
 <script>
 (function(){var t=Date.now(),sp=document.getElementById("sp");
-function hide(){setTimeout(function(){sp.classList.add("off");document.body.classList.add("rd");setTimeout(function(){sp.remove()},900)},Math.max(0,2200-(Date.now()-t)))}
-if(document.readyState=="complete")hide();else addEventListener("load",hide)})();
+function hide(){setTimeout(function(){sp.classList.add("off");document.body.classList.add("rd");setTimeout(function(){sp.remove()},450)},Math.max(0,900-(Date.now()-t)))}
+if(document.readyState=="complete")hide();else addEventListener("load",hide);
+addEventListener("pageshow",function(e){if(e.persisted){var x=document.getElementById("sp");if(x)x.remove();document.body.classList.add("rd")}});
+setTimeout(function(){var x=document.getElementById("sp");if(x)x.remove();document.body.classList.add("rd")},2500)})();
 </script>
 <script>
 /* ЗАМІНІТЬ на реальну адресу закладу (місто, вулиця, будинок) */
-var ADDRESS="Красне, Львівська область, Україна, 80560";
+var ADDRESS="Діамант, ресторанно-відпочинковий комплекс";
 (function(){var q=encodeURIComponent(ADDRESS);
 document.getElementById("adr").textContent=ADDRESS;
 document.getElementById("map").src="https://www.google.com/maps?q="+q+"&output=embed&hl=uk";
