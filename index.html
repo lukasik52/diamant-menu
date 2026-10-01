@@ -154,7 +154,7 @@ body.rd .w{opacity:1;animation:none;transition:opacity .4s ease}
 </div>
 <div class="ts" id="ts"></div>
 <div class="bar" id="bar"><button onclick="oc()"><span data-i="ord">Ваше замовлення</span><span id="bt"></span></button></div>
-<div class="sh" id="sh" onclick="if(event.target===this)cc()"><div><div class="hd"><h2 data-i="cart">Кошик</h2><button onclick="clr()" data-i="clr">Видалити все</button></div><div class="sc"><div id="cart"></div><div class="dl"><button id="dp" class="on" onclick="sd('p')" data-i="pickup">Самовивіз</button><button id="dd" onclick="sd('d')" data-i="delivery">Доставка</button></div><input id="da" class="di" type="text" autocomplete="street-address" oninput="this.classList.remove('er')" placeholder="Адреса доставки (вулиця, будинок)"><div class="lb" data-i="payl">Оплата</div><div class="dl"><button id="pc" class="on" onclick="sp('c')" data-i="cash">Готівка</button><button id="pk" onclick="sp('k')" data-i="card">Картка</button></div><input id="dn" class="di sw" type="text" autocomplete="name" placeholder="Ваше ім'я (необов'язково)"><input id="dph" class="di sw" type="tel" autocomplete="tel" inputmode="tel" oninput="this.classList.remove('er')" placeholder="Ваш телефон"></div><div class="sf"><div class="t"><span data-i="tot">Разом</span><span id="tt"></span></div><a class="call" href="#" id="sb" onclick="return sm()" data-i="sms">Оформити замовлення</a><a class="call alt" href="tel:+380679030558" data-i="call">Замовити за телефоном →</a></div></div></div>
+<div class="sh" id="sh" onclick="if(event.target===this)cc()"><div><div class="hd"><h2 data-i="cart">Кошик</h2><button onclick="clr()" data-i="clr">Видалити все</button></div><div class="sc"><div id="cart"></div><div class="dl"><button id="dp" class="on" onclick="sd('p')" data-i="pickup">Самовивіз</button><button id="dd" onclick="sd('d')" data-i="delivery">Доставка</button></div><input id="da" class="di" type="text" autocomplete="street-address" oninput="this.classList.remove('er')" placeholder="Адреса доставки (вулиця, будинок)"><div class="lb" data-i="payl">Оплата</div><div class="dl"><button id="pc" class="on" onclick="sp('c')" data-i="cash">Готівка</button><button id="pk" onclick="sp('k')" data-i="card">Картка</button></div><input id="dn" class="di sw" type="text" autocomplete="name" placeholder="Ваше ім'я (необов'язково)"><input id="dph" class="di sw" type="tel" autocomplete="tel" inputmode="tel" oninput="this.classList.remove('er')" placeholder="Ваш телефон"></div><div class="sf"><div class="t"><span data-i="tot">Разом</span><span id="tt"></span></div><a class="call" href="#" id="sb" onclick="return sm()" data-i="sms">Оформити замовлення</a></div></div></div>
 <script>
 var v=function(a,b,x,y){return[[x,a],[y,b]]};
 var pz=function(n,d,a,b){return[n,d,"",v(a,b,"32 см","45 см")]};
@@ -396,7 +396,7 @@ setTimeout(function(){var x=document.getElementById("sp");if(x)x.remove();docume
 </script>
 <script>
 /* ЗАМІНІТЬ на реальну адресу закладу (місто, вулиця, будинок) */
-var ADDRESS="Красне, Львівська область, Україна, 80560";
+var ADDRESS="Діамант, ресторанно-відпочинковий комплекс";
 (function(){var q=encodeURIComponent(ADDRESS);
 document.getElementById("adr").textContent=ADDRESS;
 document.getElementById("map").src="https://www.google.com/maps?q="+q+"&output=embed&hl=uk";
