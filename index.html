@@ -167,6 +167,14 @@ body.rd .w{opacity:1;animation:none;transition:opacity .4s ease}
 .sa-b b{font-weight:700;font-size:13px;white-space:nowrap}
 .sa-b button.on{background:#a21c5b;color:#fff;border-color:#ffc2de}
 .sa-b button.on em{color:#ffc2de}
+.md{position:fixed;inset:0;z-index:40;display:none;align-items:center;justify-content:center;background:rgba(58,8,36,.72);padding:20px}
+.mb2{width:100%;max-width:360px;background:#7a1450;border:1px solid var(--bd);border-radius:22px;padding:22px 18px;text-align:center}
+.mb2 b{display:block;font:600 16px Jost,sans-serif;margin-bottom:8px}
+.mb2 p{margin:0 0 16px;font-size:15px}
+.mr{display:flex;gap:10px}
+.mr button{flex:1;padding:12px 6px;border-radius:14px;border:1.5px solid rgba(255,255,255,.6);background:none;color:#fff;font:500 14px Jost,sans-serif}
+.mr button.my{background:#fff;color:#8a1d57;border-color:#fff;font-weight:600}
+.sa-row .q b{font-size:14px}
 </style>
 </head>
 <body>
@@ -194,6 +202,7 @@ body.rd .w{opacity:1;animation:none;transition:opacity .4s ease}
 <div class="ft"><a href="tel:+380679030558">067 90 30 558</a><br><a href="tel:+380988893512">098 88 93 512</a><br><div class="so"><a class="sb2" href="https://www.instagram.com/nc_diamant_official/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6"/></svg>Instagram</a></div><div class="zs"><span class="zy" data-i="slu">СЛАВА УКРАЇНІ</span><br><span class="zb" data-i="slz">СЛАВА ЗСУ</span></div><div class="cr">Create by Horun Luka</div></div></div>
 <div id="cv" style="display:none"><div class="ph2"><button class="bk" onclick="hm()" aria-label="Назад">←</button><h2 id="ct"></h2></div><div id="cl"></div></div>
 </div>
+<div class="md" id="md"><div class="mb2"><b data-i="sthx">Дякуємо! Ми зателефонуємо для підтвердження</b><p data-i="mq">Чи не бажаєте щось замовити з меню?</p><div class="mr"><button class="my" onclick="mgo(1)" data-i="myes">Так, до меню</button><button onclick="mgo(0)" data-i="mno">Ні, дякую</button></div></div></div>
 <div class="ts" id="ts"></div>
 <div class="bar" id="bar"><button onclick="oc()"><span data-i="ord">Ваше замовлення</span><span id="bt"></span></button></div>
 <div class="sh" id="sh" onclick="if(event.target===this)cc()"><div><div class="hd"><h2 data-i="cart">Кошик</h2><button onclick="clr()" data-i="clr">Видалити все</button></div><div class="sc"><div id="cart"></div><div class="dl"><button id="dp" class="on" onclick="sd('p')" data-i="pickup">Самовивіз</button><button id="dd" onclick="sd('d')" data-i="delivery">Доставка</button></div><input id="da" class="di" type="text" autocomplete="street-address" oninput="this.classList.remove('er')" placeholder="Адреса доставки (вулиця, будинок)"><div class="lb" data-i="payl">Оплата</div><div class="dl"><button id="pc" class="on" onclick="sp('c')" data-i="cash">Готівка</button><button id="pk" onclick="sp('k')" data-i="card">Картка</button></div><input id="dn" class="di sw" type="text" autocomplete="name" placeholder="Ваше ім'я" oninput="this.classList.remove('er')" required><input id="dph" class="di sw" type="tel" autocomplete="tel" inputmode="tel" oninput="this.classList.remove('er')" placeholder="Ваш телефон"></div><div class="sf"><div class="t"><span data-i="tot">Разом</span><span id="tt"></span></div><a class="call" href="#" id="sb" onclick="return sm()" data-i="sms">Оформити замовлення</a></div></div></div>
@@ -317,8 +326,8 @@ var IC=["M5 19C5 9 12 4 20 4c0 9-5 15-15 15zM5 19l9-9","M4 20L20 4M8 12l4 4M12 8
 var cart={};
 var L="uk";try{L=localStorage.getItem("lg")==="en"?"en":"uk"}catch(e){}
 var UI={
-uk:{title:"Діамант — Меню",sub:"РЕСТОРАННО-ВІДПОЧИНКОВИЙ КОМПЛЕКС",tag:"Смак, який об'єднує",h1:"МЕНЮ",lead:"Обирайте улюблені страви та насолоджуйтесь",pop:"Популярні страви",about:"Про ресторан",aboutp:"«Діамант» — ресторанно-відпочинковий комплекс, де смачно, затишно і є чим зайнятися всією компанією. Ми готуємо від душі: свіжі продукти, щедрі порції та щира українська гостинність.",c1:"Суші та роли",c2:"Італійська піца",c3:"Кальян",find:"Як нас знайти",open:"Відкрити в Google Maps",route:"Прокласти маршрут",slu:"СЛАВА УКРАЇНІ",slz:"СЛАВА ЗСУ",cart:"Кошик",clr:"Видалити все",tot:"Разом",sms:"Оформити замовлення",copied:"Замовлення скопійовано — вставте його в чат Telegram",payl:"Оплата",cash:"Готівка",card:"Картка",nameph:"Ваше ім'я",phoneph:"Ваш телефон",thanks:"Дякуємо! Замовлення прийнято, ми вам зателефонуємо",fail:"Не вдалося відправити. Зателефонуйте нам, будь ласка",sending:"Відправляємо…",ord:"Ваше замовлення",empty:"Кошик порожній",add:"Додати",pickup:"Самовивіз",delivery:"Доставка",addr:"Адреса доставки (вулиця, будинок)",rcv:"Отримання",saunt:"Сауна",srent:"оренда",sprl:"Оренда сауни",sprh:"за годину · до 6 осіб",sext:"Додатково",stow:"Рушники",sbrm:"Віники",sday:"Оберіть день",stmL:"Початок",shrL:"Годин",ssend:"Надіслати запит на бронювання",pickd:"Спочатку оберіть день",sthx:"Дякуємо! Ми зателефонуємо для підтвердження",snote:"Бронювання підтверджуємо по телефону",saun:"Сауна та інтер'єр",saunp:"Крім ресторану, у нас є сауна з басейном та затишні дерев'яні зали з каміном — для відпочинку з друзями, родиною чи компанією."},
-en:{title:"Diamant — Menu",sub:"RESTAURANT & LEISURE COMPLEX",tag:"Taste that unites",h1:"MENU",lead:"Choose your favorite dishes and enjoy",pop:"Popular dishes",about:"About the restaurant",aboutp:"“Diamant” is a restaurant and leisure complex where the food is delicious, the atmosphere is cozy and there is something for the whole group to enjoy. We cook with soul: fresh ingredients, generous portions and warm Ukrainian hospitality.",c1:"Sushi & rolls",c2:"Italian pizza",c3:"Hookah",find:"How to find us",open:"Open in Google Maps",route:"Get directions",slu:"GLORY TO UKRAINE",slz:"GLORY TO THE ARMED FORCES",cart:"Cart",clr:"Clear all",tot:"Total",sms:"Place order",copied:"Order copied — paste it into the Telegram chat",payl:"Payment",cash:"Cash",card:"Card",nameph:"Your name",phoneph:"Your phone number",thanks:"Thank you! Your order is received, we will call you",fail:"Could not send. Please call us instead",sending:"Sending…",ord:"Your order",empty:"Your cart is empty",add:"Add",pickup:"Pickup",delivery:"Delivery",addr:"Delivery address (street, building)",rcv:"Receiving",saunt:"Sauna",srent:"rental",sprl:"Sauna rental",sprh:"per hour · up to 6 people",sext:"Extras",stow:"Towels",sbrm:"Brooms",sday:"Choose a day",stmL:"Start",shrL:"Hours",ssend:"Send booking request",pickd:"Please choose a day first",sthx:"Thank you! We will call you to confirm",snote:"We confirm bookings by phone",saun:"Sauna & interior",saunp:"Besides the restaurant, we have a sauna with a pool and cozy wooden halls with a fireplace — perfect for friends, family or a company."}
+uk:{title:"Діамант — Меню",sub:"РЕСТОРАННО-ВІДПОЧИНКОВИЙ КОМПЛЕКС",tag:"Смак, який об'єднує",h1:"МЕНЮ",lead:"Обирайте улюблені страви та насолоджуйтесь",pop:"Популярні страви",about:"Про ресторан",aboutp:"«Діамант» — ресторанно-відпочинковий комплекс, де смачно, затишно і є чим зайнятися всією компанією. Ми готуємо від душі: свіжі продукти, щедрі порції та щира українська гостинність.",c1:"Суші та роли",c2:"Італійська піца",c3:"Кальян",find:"Як нас знайти",open:"Відкрити в Google Maps",route:"Прокласти маршрут",slu:"СЛАВА УКРАЇНІ",slz:"СЛАВА ЗСУ",cart:"Кошик",clr:"Видалити все",tot:"Разом",sms:"Оформити замовлення",copied:"Замовлення скопійовано — вставте його в чат Telegram",payl:"Оплата",cash:"Готівка",card:"Картка",nameph:"Ваше ім'я",phoneph:"Ваш телефон",thanks:"Дякуємо! Замовлення прийнято, ми вам зателефонуємо",fail:"Не вдалося відправити. Зателефонуйте нам, будь ласка",sending:"Відправляємо…",ord:"Ваше замовлення",empty:"Кошик порожній",add:"Додати",pickup:"Самовивіз",delivery:"Доставка",addr:"Адреса доставки (вулиця, будинок)",rcv:"Отримання",saunt:"Сауна",hh:"год",mq:"Чи не бажаєте щось замовити з меню?",myes:"Так, до меню",mno:"Ні, дякую",srent:"оренда",sprl:"Оренда сауни",sprh:"за годину · до 6 осіб",sext:"Додатково",stow:"Рушники",sbrm:"Віники",sday:"Оберіть день",stmL:"Початок",shrL:"Годин",ssend:"Надіслати запит на бронювання",pickd:"Спочатку оберіть день",sthx:"Дякуємо! Ми зателефонуємо для підтвердження",snote:"Бронювання підтверджуємо по телефону",saun:"Сауна та інтер'єр",saunp:"Крім ресторану, у нас є сауна з басейном та затишні дерев'яні зали з каміном — для відпочинку з друзями, родиною чи компанією."},
+en:{title:"Diamant — Menu",sub:"RESTAURANT & LEISURE COMPLEX",tag:"Taste that unites",h1:"MENU",lead:"Choose your favorite dishes and enjoy",pop:"Popular dishes",about:"About the restaurant",aboutp:"“Diamant” is a restaurant and leisure complex where the food is delicious, the atmosphere is cozy and there is something for the whole group to enjoy. We cook with soul: fresh ingredients, generous portions and warm Ukrainian hospitality.",c1:"Sushi & rolls",c2:"Italian pizza",c3:"Hookah",find:"How to find us",open:"Open in Google Maps",route:"Get directions",slu:"GLORY TO UKRAINE",slz:"GLORY TO THE ARMED FORCES",cart:"Cart",clr:"Clear all",tot:"Total",sms:"Place order",copied:"Order copied — paste it into the Telegram chat",payl:"Payment",cash:"Cash",card:"Card",nameph:"Your name",phoneph:"Your phone number",thanks:"Thank you! Your order is received, we will call you",fail:"Could not send. Please call us instead",sending:"Sending…",ord:"Your order",empty:"Your cart is empty",add:"Add",pickup:"Pickup",delivery:"Delivery",addr:"Delivery address (street, building)",rcv:"Receiving",saunt:"Sauna",hh:"h",mq:"Would you like to order something from the menu?",myes:"Yes, to the menu",mno:"No, thanks",srent:"rental",sprl:"Sauna rental",sprh:"per hour · up to 6 people",sext:"Extras",stow:"Towels",sbrm:"Brooms",sday:"Choose a day",stmL:"Start",shrL:"Hours",ssend:"Send booking request",pickd:"Please choose a day first",sthx:"Thank you! We will call you to confirm",snote:"We confirm bookings by phone",saun:"Sauna & interior",saunp:"Besides the restaurant, we have a sauna with a pool and cozy wooden halls with a fireplace — perfect for friends, family or a company."}
 };
 function U(k){return UI[L][k]}
 var EN={
@@ -369,6 +378,10 @@ function W(s){return s.replace(/(\d)\s*г(?=\s|,|$)/g,"$1 g").replace(/(\d)\s*с
 function T(s){if(L!=="en"||!s)return s;return EN[s]!==undefined?EN[s]:W(s)}
 function nm(k,l){var p=k.split("."),it=C[p[0]].s[p[1]].a[p[2]],sv=L;L=l;var r=T(it[0]);if(typeof it[3]!="number"){var vl=it[3][p[3]][0];if(vl)r+=" ("+T(vl)+")"}L=sv;return r}
 var cur=-1,mode="p",pay="c";
+var SB=null;
+function rsb(){SB=null;rc();up()}
+function mgo(y){gi("md").style.display="none";if(y){if(SB){if(!gi("dn").value)gi("dn").value=SB.name;if(!gi("dph").value)gi("dph").value=SB.phone}hm()}else{SB=null;rc();up()}}
+
 var SD=null,SM=new Date();SM.setDate(1);
 function gi(i){return document.getElementById(i)}
 function cal(){var loc=L=="en"?"en-GB":"uk-UA",t=new Date();t.setHours(0,0,0,0);
@@ -387,7 +400,7 @@ var nI=gi("snm");if(!nI.value.trim()){nI.classList.add("er");nI.focus();return f
 var ex=[];if(gi("x1").classList.contains("on"))ex.push("рушники");if(gi("x2").classList.contains("on"))ex.push("віники");
 var d={type:"sauna",date:new Date(SD).toLocaleDateString("uk-UA"),time:gi("stm").value,hours:+gi("shr").value,extras:ex,phone:ph.value.trim(),name:gi("snm").value.trim()};
 var b=document.querySelector("#cl .call"),old=b.textContent;sending=true;b.textContent=U("sending");
-fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(d)}).then(function(r){if(!r.ok)throw 0;toast(U("sthx"))}).catch(function(){toast(U("fail"))}).then(function(){sending=false;b.textContent=old});return false}
+fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(d)}).then(function(r){if(!r.ok)throw 0;SB={date:d.date,time:d.time,hours:d.hours,x:ex,total:900*d.hours+(ex.indexOf("рушники")>-1?200:0)+(ex.indexOf("віники")>-1?300:0),name:d.name,phone:d.phone};rc();up();gi("md").style.display="flex"}).catch(function(){toast(U("fail"))}).then(function(){sending=false;b.textContent=old});return false}
 
 var LK={},MY={};try{MY=JSON.parse(localStorage.getItem("my")||"{}")}catch(e){}
 function lkb(k){return '<button class="lk'+(MY[k]?' on':'')+'" data-k="'+k+'" onclick="lk(\''+k+'\')" aria-label="Diamond"><svg viewBox="0 0 24 24"><path d="M7 4h10l5 6-10 11L2 10zM2 10h20M9 4l-2 6 5 11 5-11-2-6"/></svg><b>'+(LK[k]||0)+'</b></button>'}
@@ -418,12 +431,12 @@ var a=document.getElementById("da"),ph=document.getElementById("dph"),nmI=docume
 if(mode=="d"&&!a.value.trim()){a.classList.add("er");a.focus();return false}
 if(!nmI.value.trim()){nmI.classList.add("er");nmI.focus();return false}
 if(ph.value.replace(/\D/g,"").length<9){ph.classList.add("er");ph.focus();return false}
-var d={items:items,total:tot()[1],mode:mode=="d"?"доставка":"самовивіз",address:mode=="d"?a.value.trim():"",pay:pay=="k"?"картка":"готівка",phone:ph.value.trim(),name:nmI.value.trim()};
+var d={items:items,sauna:SB?{date:SB.date,time:SB.time,hours:SB.hours,extras:SB.x}:null,total:tot()[1]+(SB?SB.total:0),mode:mode=="d"?"доставка":"самовивіз",address:mode=="d"?a.value.trim():"",pay:pay=="k"?"картка":"готівка",phone:ph.value.trim(),name:nmI.value.trim()};
 if(!ENDPOINT){var t="Замовлення ("+d.mode+(d.address?": "+d.address:"")+"), оплата: "+d.pay+"\nТел: "+d.phone+(d.name?" ("+d.name+")":"")+"\n"+lines.join("\n")+"\nРазом: ₴ "+d.total;
 cp(t);toast(U("copied"));setTimeout(function(){location.href=TG},400);return false}
 var b=document.getElementById("sb"),old=b.textContent;sending=true;b.textContent=U("sending");
 fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(d)}).then(function(r){if(!r.ok)throw 0;
-cart={};up();rc();cc();toast(U("thanks"))}).catch(function(){toast(U("fail"))}).then(function(){sending=false;b.textContent=U("sms")})
+cart={};SB=null;up();rc();cc();toast(U("thanks"))}).catch(function(){toast(U("fail"))}).then(function(){sending=false;b.textContent=U("sms")})
 return false}
 function cp(t){try{if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t)}catch(e){}
 try{var x=document.createElement("textarea");x.value=t;x.style.cssText="position:fixed;opacity:0;top:0";document.body.appendChild(x);x.focus();x.select();document.execCommand("copy");x.remove()}catch(e){}}
@@ -450,11 +463,12 @@ function look(k){var p=k.split(".").map(Number),it=C[p[0]].s[p[1]].a[p[2]],x=typ
 function ad(k){cart[k]=(cart[k]||0)+1;up()}
 function ch(k,d){cart[k]+=d;if(cart[k]<=0)delete cart[k];up();rc()}
 function tot(){var n=0,s=0;for(var k in cart){n+=cart[k];s+=cart[k]*look(k)[1]}return[n,s]}
-function up(){var t=tot();document.getElementById("n").textContent=t[0];bar.style.display=t[0]?"block":"none";bt.textContent="₴ "+t[1]}
+function up(){var t=tot();document.getElementById("n").textContent=t[0];bar.style.display=t[0]?"block":"none";bt.textContent="₴ "+(t[1]+(SB?SB.total:0))}
 function rc(){var h="";for(var k in cart){var x=look(k),q=k.split("."),ik=q[0]+"."+q[1]+"."+q[2];
  h+='<div class="r">'+(IM[ik]?'<img class="rt" alt="" src="'+IM[ik]+'">':'')+'<div class="rn"><b>'+E(nm(k,L))+'</b><small>₴ '+x[1]+'</small></div><span class="q"><button onclick="ch(\''+k+'\',-1)">−</button>'+cart[k]+'<button onclick="ch(\''+k+'\',1)">+</button></span></div>'}
- cart_.innerHTML=h||'<div class="r">'+U("empty")+'</div>';tt.textContent="₴ "+tot()[1]}
-function clr(){cart={};up();rc()}
+ if(SB){var xs=SB.x.map(function(z){return z=="рушники"?U("stow"):U("sbrm")}).join(", ");h+='<div class="r sa-row"><div class="rn"><b>🧖 '+U("saunt")+'</b><small>'+E(SB.date+" "+SB.time+" · "+SB.hours+" "+U("hh")+(xs?" · "+xs:""))+'</small></div><span class="q"><b>₴ '+SB.total+'</b><button onclick="rsb()">×</button></span></div>'}
+cart_.innerHTML=h||'<div class="r">'+U("empty")+'</div>';tt.textContent="₴ "+(tot()[1]+(SB?SB.total:0))}
+function clr(){cart={};SB=null;up();rc()}
 function oc(){rc();sh.style.display="flex";document.body.style.overflow="hidden"}
 function cc(){sh.style.display="none";document.body.style.overflow=""}
 var home=document.getElementById("home"),cv=document.getElementById("cv"),ct=document.getElementById("ct"),cl=document.getElementById("cl"),bar=document.getElementById("bar"),bt=document.getElementById("bt"),sh=document.getElementById("sh"),tt=document.getElementById("tt"),cart_=document.getElementById("cart");
